@@ -45,9 +45,8 @@ void player::Update() {
 		this->jumpTimeBuffer = Max<float>(this->jumpTimeBuffer - NWTime::_deltaTime, 0.0f);
 	}
 	else {
-            //A bug in NWin forces me to do that. In the future it will be just Input::right or use keyboard.isKeyPressed
-			int right    = ((NWin::Window*)Context::window)->_getKeyboard().getKeyData(NWin::NWIN_KEY_RIGHT)&& ((NWin::Window*)Context::window)->_getKeyboard().getKeyData(NWin::NWIN_KEY_RIGHT)->_lastEvent == NWin::NWIN_KeyPressed; 
-			int left     = ((NWin::Window*)Context::window)->_getKeyboard().getKeyData(NWin::NWIN_KEY_LEFT) && ((NWin::Window*)Context::window)->_getKeyboard().getKeyData(NWin::NWIN_KEY_LEFT)->_lastEvent == NWin::NWIN_KeyPressed; 
+            int right      = Inputs::right;
+            int left       = Inputs::left;
 			hMove = right - left;
 	}
      
